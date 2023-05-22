@@ -1,20 +1,19 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: vd-ambro <marvin@42.fr>                    +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/04/11 09:10:19 by vd-ambro          #+#    #+#              #
-#    Updated: 2023/05/18 18:37:17 by vd-ambro         ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
 
 NAME = libftprintf.a
 
-SRCS = ft_printf.c 
+FUNCTIONS = ft_printf.c \
+			print_char.c \
+			print_hex.c \
+			print_nbr.c \
+			print_ptr.c \
+			print_str.c \
+			print_uns.c
 
-OBJS = $(SRCS:.c=.o)
+SRCS_PATH = ./srcs
+INCL_PATH = ./includes
+
+SRCS = $(addprefix $(SRC_PATH)/,$(FUNCTIONS))
+OBJS = $(addprefix $(OBJ_PATH)/,$(FUNCTIONS:.c=.o))
 
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
