@@ -1,4 +1,16 @@
-#include "ft_printf.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   print_nbr.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vd-ambro <vd-ambro@student.42roma.it>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/05/23 13:14:44 by vd-ambro          #+#    #+#             */
+/*   Updated: 2023/05/23 13:23:05 by vd-ambro         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "../includes/ft_printf.h"
 
 int	print_nbr(int n)
 {
@@ -12,8 +24,8 @@ int	print_nbr(int n)
 			print_str("-2147483648");
 			return (11);
 		}
-	i += print_char('-');
-	n = -n;
+		i += print_char('-');
+		n = -n;
 	}
 	if (n > 9)
 		i += print_nbr(n / 10);

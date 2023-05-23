@@ -1,5 +1,16 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vd-ambro <vd-ambro@student.42roma.it>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/05/23 13:14:33 by vd-ambro          #+#    #+#             */
+/*   Updated: 2023/05/23 13:23:17 by vd-ambro         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../includes/ft_printf.h"
 #include <stdarg.h>
 
 int	handle_case(va_list args, const char c)
@@ -32,20 +43,20 @@ int	ft_printf(const char *format, ...)
 	int		i;
 	int		count;
 
-	if (!str)
+	if (!format)
 		return (0);
 	i = 0;
 	count = 0;
-	va_start(args, str);
-	while (str[i])
+	va_start(args, format);
+	while (format[i])
 	{
-		if (str[i] == '%')
+		if (format[i] == '%')
 		{
 			i++;
-			count += handle_case(args, str[i]);
+			count += handle_case(args, format[i]);
 		}
 		else
-			count += print_char(str[i]);
+			count += print_char(format[i]);
 		i++;
 	}
 	va_end(args);
